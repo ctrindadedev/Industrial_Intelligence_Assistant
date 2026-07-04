@@ -35,6 +35,12 @@ spring:
         table-name: vector_store
         schema-name: public
 
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
 logging:
   level:
     org.springframework.ai: DEBUG
