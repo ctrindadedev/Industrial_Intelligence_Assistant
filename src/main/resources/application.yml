@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: iia
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/iia_db
+    username: iia
+    password: iia123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: public
+
+  ai:
+    google:
+      genai:
+        api-key: ${GOOGLE_API_KEY:}
+        chat:
+          options:
+            model: gemini-2.5-flash
+            temperature: 1.0
+
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
+        initialize-schema: true
+        table-name: vector_store
+        schema-name: public
+
+logging:
+  level:
+    org.springframework.ai: DEBUG

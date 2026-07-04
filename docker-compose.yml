@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: iia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-iia_db}
+      POSTGRES_USER: ${DB_USERNAME:-iia}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-iia}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - iia_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-iia} -d ${DB_NAME:-iia_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  iia_postgres_data:
