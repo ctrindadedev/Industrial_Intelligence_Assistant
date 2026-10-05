@@ -25,6 +25,11 @@ spring:
           options:
             model: gemini-2.5-flash
             temperature: 1.0
+        embedding:
+          text:
+            options:
+              model: gemini-embedding-001
+              dimensions: 1536
 
     vectorstore:
       pgvector:

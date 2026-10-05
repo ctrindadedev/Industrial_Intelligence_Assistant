@@ -38,16 +38,16 @@ public class PassagemServicoOperadorEstacao {
     @Column(nullable = false)
     private String responsavel;
 
-    @OneToMany(mappedBy = "passagemServico", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "passagemServicoOperadorEstacao", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RegistroTanque> registrosTanque = new ArrayList<>();
 
-    @OneToMany(mappedBy = "passagemServico", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "passagemServicoOperadorEstacao", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MovimentacaoFluido> movimentacoesFluido = new ArrayList<>();
 
-    @OneToMany(mappedBy = "passagemServico", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "passagemServicoOperadorEstacao", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ParadaEquipamento> paradasEquipamento = new ArrayList<>();
 
-    @OneToOne(mappedBy = "passagemServico", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "passagemServicoOperadorEstacao", cascade = CascadeType.ALL, orphanRemoval = true)
     private ResumoOperacional resumoOperacional;
 
     public enum StatusTurno {
